@@ -1,0 +1,8 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Intellij archivo configuracion
+.idea/
+*.iml
