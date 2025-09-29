@@ -17,9 +17,9 @@ if operacion == "suma":
     print(f"La suma de {num1} y {num2} es {num1 + num2}")
 elif operacion == "resta":
     print(f"La resta de {num1} y {num2} es {num1 - num2}")
-elif operacion == "multiplicacion":
+elif operacion in ["multiplicacion", "multiplicación"]:
     print(f"La multiplicación de {num1} y {num2} es {round(num1 * num2, 2)}")
-elif operacion == "division":
+elif operacion in ["division", "división"]:
     if num2 != 0:
         print(f"La división de {num1} y {num2} es {round(num1 / num2, 2)}")
     else:

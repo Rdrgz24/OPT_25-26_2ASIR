@@ -10,3 +10,21 @@
 # Pedro
 # Lucía
 
+"""
+El programa define una lista, recorre cada elemento de la lista con un bucle for.
+Cuando encuentra una palabra que empiece por "A" (mayúscula o minúscula) continua con el bucle, de manera
+que solo muestra los nombres que no empiezan por la "A".
+"""
+
+# Definimos la lista (mínimo de 6 nombres)
+lista = ["José", "Alba", "Almudena", "Santiago", "Yolanda", "Adrián"]
+
+# Bucle for que recorre cada nombre de la lista.
+for nombre in lista:
+    # Si encuentra una "A" mayúscula se convierte en "a" minúscula gracias a .lower()
+    # Gracias .startswith() filtramos por la palabra que empieza en cada nombre.
+    if nombre.lower().startswith("a"):
+        # Si empieza por "A" o "a" continua el bucle for.
+        continue
+    # Si no empieza por "A" o "a" muestra el nombre en cuestión por pantalla.
+    print(nombre)
