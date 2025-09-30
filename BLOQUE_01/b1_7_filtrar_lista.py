@@ -22,7 +22,7 @@ lista = ["José", "Alba", "Almudena", "Santiago", "Yolanda", "Adrián"]
 # Bucle for que recorre cada nombre de la lista.
 for nombre in lista:
     # Si encuentra una "A" mayúscula se convierte en "a" minúscula gracias a .lower()
-    # Gracias .startswith() filtramos por la palabra que empieza en cada nombre.
+    # Gracias a .startswith() filtramos por la palabra que empieza en cada nombre.
     if nombre.lower().startswith("a"):
         # Si empieza por "A" o "a" continua el bucle for.
         continue

@@ -8,8 +8,7 @@
 # ...
 # 7 x 10 = 70
 
-num = int(input("Introduce un número -> "))
-i = 1
+num = float(input("Introduce un número -> "))
 
 print(f"Tabla de multiplicar del {num}")
 for i in range(1, 11):
