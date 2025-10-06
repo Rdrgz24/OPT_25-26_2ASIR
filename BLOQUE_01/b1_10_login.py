@@ -2,19 +2,17 @@
 
 """
 
-opcion = int(input("Escoge una opcion [1] Registrarse [2] Iniciar sesión [3] Salir -> "))
-
-while opcion in [1, 2, 3]:
+while True:
+    opcion = int(input("Escoge una opción [1] Registrarse [2] Iniciar sesión [3] Salir -> "))
     match opcion:
         case 1:
-            print("Opcion 1")
+            print("Opción 1: Registrarse")
             break
         case 2:
-            print("Opcion 2")
+            print("Opción 2: Iniciar sesión")
             break
         case 3:
             print("Saliste del menú")
             break
-else:
-    print("Opcion no disponible")
-
+        case _:
+            print("Opción no disponible, elige nuevamente.")
