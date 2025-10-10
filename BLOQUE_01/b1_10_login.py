@@ -40,3 +40,5 @@ while True:
             break
         case _:
             print("Opción no disponible, elige nuevamente.")
+
+# Nuevos cambios
