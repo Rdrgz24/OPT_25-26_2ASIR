@@ -1,40 +1,64 @@
+# NO TERMINADO - FALTAN RETOQUES
 """
+Este programa permite registrar usuarios con un email y contraseña,
+y luego iniciar sesión con ellos.
 
-"""
-
+En la primera versión probada usé dos listas:
 usuarios = []
 contrasenas = []
+Esto provocaba un error, ya que las contraseñas no estaban asociadas
+a un usuario concreto. Si un usuario introducía la contraseña de otro,
+el programa lo aceptaba igual.
 
+Solución aportada:
+Usar un diccionario que guarda pares clave–valor:
+usuarios = { "correo": "contraseña" }
+
+Python internamente utiliza una estructura de tipo "hash table", donde:
+· La clave (key) es el correo o nombre de usuario → "aroon@gmail.com"
+· El valor (value) es la contraseña asociada → "Aroon1234@"
+Así cada usuario tiene su contraseña única e independiente.
+"""
+
+usuarios = {}
+
+# Bucle principal del menú (1, 2, 3)
 while True:
     opcion = int(input("Escoge una opción [1] Registrarse [2] Iniciar sesión [3] Salir -> "))
     match opcion:
+        # Opción 1 - Registro
         case 1:
-            while True:
+            while True: # Bucle para validar identificador (email)
                 identifier = input("Introduce dirección de email -> ")
                 contador = 0
                 punto = False
+                # Contar los carácteres antes del punto
                 for n in identifier:
                     if n == ".":
                         punto = True
                         break
                     contador +=1
+                # Validar estructura básica correo (contiene @, punto y tres carácteres antes del punto)
                 if "@" in identifier and punto:
                     if contador >= 3:
+                        # Verificar que contiene extensión .com o .es o .net.
                         if (identifier.endswith(".com")
                                 or identifier.endswith(".es")
                                 or identifier.endswith(".net")):
+                            # Verificar que antes del @ no haya símbolos no permitidos
                             if any(char in "!@#$%&*?" for char in identifier.split("@")[0]):
                                 print("El correo tiene carácteres no permitidos antes del @.")
                             else:
-                                while True:
+                                while True: # Bucle de contraseña
                                     contrasena = input("Introduce la contraseña -> ")
-                                    if len(contrasena) >= 8:
-                                        if contrasena.lower() != contrasena:
-                                            if any(num in "0123456789" for num in contrasena):
-                                                if any(char in "!@#$%&*?" for char in contrasena):
-                                                    usuarios.append(identifier)
-                                                    contrasenas.append(contrasena)
+                                    if len(contrasena) >= 8: # Contraseña con 8 o más caracteres...
+                                        if contrasena.lower() != contrasena: # Comparativa para saber si tiene mayúscula...
+                                            if any(num in "0123456789" for num in contrasena): # Comprobar que tiene algún número.
+                                                if any(char in "!@#$%&*?" for char in contrasena): # Comprobar que tenga un símbolo especial.
+                                                    # Se añade lo introducido con formato correo:contraseña al diccionario.
+                                                    usuarios[identifier] = contrasena
                                                     print(f"Usuario", identifier, "con contraseña", contrasena, "registrados.")
+                                                    # Se corta el bucle al registrar usuario y contraseña válidos.
                                                     break
                                                 else:
                                                     print("Debe tener un carácter especial !@#$%&*?")
@@ -52,12 +76,27 @@ while True:
                 else:
                     print("Correo incorrecto, vuelve a introducir...")
         case 2:
-            print("Opción 2: Iniciar sesión")
-            break
+            while True:
+                usuario_login = input("Introduce usuario -> ")
+                # Compara el usuario introducido con los usuarios (clave) del diccionario registrados.
+                if usuario_login != "volver":
+                    if usuario_login in usuarios:
+                        contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
+                        # Compara la contraseña introducida con el valor del usuario_login (clave).
+                        # El valor internamente se representa como: "rafael": "Rafa1234@"
+                        # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
+                        if contrasena_login == usuarios[usuario_login]:
+                            print("Inicio de sesión exitoso.")
+                            break
+                        else:
+                            print("Contraseña incorrecta.")
+                    else:
+                        print("Usuario no existe, si lo necesitas, escribe (volver) para ir al menú principal.")
+                else:
+                    print("Volviendo al menú...")
+                    break
         case 3:
             print("Saliste del menú")
             break
         case _:
             print("Opción no disponible, elige nuevamente.")
-
-# Nuevos cambios
