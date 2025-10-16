@@ -105,4 +105,4 @@ while True:
         case _:
             print("Opción no disponible, elige nuevamente.")
 
-# Completado - posibles retoques.
+# Completado - posibles retoques
