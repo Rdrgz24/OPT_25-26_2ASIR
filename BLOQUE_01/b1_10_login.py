@@ -1,4 +1,3 @@
-# NO TERMINADO - FALTAN RETOQUES
 """
 Este programa permite registrar usuarios con un email y contraseña,
 y luego iniciar sesión con ellos.
@@ -30,18 +29,15 @@ while True:
         case 1:
             while True: # Bucle para validar identificador (email)
                 identifier = input("Introduce dirección de email -> ")
-                contador = 0
-                punto = False
-                # Contar los carácteres antes del punto
-                for n in identifier:
-                    if n == ".":
-                        punto = True
-                        break
-                    contador +=1
-                # Validar estructura básica correo (contiene @, punto y tres carácteres antes del punto)
-                if "@" in identifier and punto:
-                    if contador >= 3:
-                        # Verificar que contiene extensión .com o .es o .net.
+                # Busca la posición del ultimo punto en el correo insertado.
+                punto_ext = identifier.rfind(".")
+                # Validar estructura básica correo (contiene @, punto y contiene punto).
+                if "@" in identifier and punto_ext:
+                    # Extraer parte del correo que va antes del último punto.
+                    antes_punto = identifier[:punto_ext]
+                    # Valida los carácteres o longitud antes del "." (extensión).
+                    if len(antes_punto) >= 3:
+                        # Verificar que tiene extensión .com o .es o .net.
                         if (identifier.endswith(".com")
                                 or identifier.endswith(".es")
                                 or identifier.endswith(".net")):
@@ -81,15 +77,24 @@ while True:
                 # Compara el usuario introducido con los usuarios (clave) del diccionario registrados.
                 if usuario_login != "volver":
                     if usuario_login in usuarios:
-                        contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
-                        # Compara la contraseña introducida con el valor del usuario_login (clave).
-                        # El valor internamente se representa como: "rafael": "Rafa1234@"
-                        # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
-                        if contrasena_login == usuarios[usuario_login]:
-                            print("Inicio de sesión exitoso.")
+                        intento = 0
+                        while intento < 3:
+                            contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
+                            # Compara la contraseña introducida con el valor del usuario_login (clave).
+                            # El valor internamente se representa como: "rafael": "Rafa1234@"
+                            # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
+                            if contrasena_login == usuarios[usuario_login]:
+                                print("Inicio de sesión exitoso.")
+                                intento = 3
+                                break
+                            else:
+                                intento += 1
+                                print(f"Contraseña incorrecta, intento {intento}/3.")
+
+                        if intento == 3 and contrasena_login != usuarios[usuario_login]:
+                            print("Demasiados intentos fallidos. Volviendo al menú.")
                             break
-                        else:
-                            print("Contraseña incorrecta.")
+                        break
                     else:
                         print("Usuario no existe, si lo necesitas, escribe (volver) para ir al menú principal.")
                 else:
@@ -100,3 +105,5 @@ while True:
             break
         case _:
             print("Opción no disponible, elige nuevamente.")
+
+# Completado en principio - posibles retoques.
