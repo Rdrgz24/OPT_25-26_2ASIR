@@ -1,7 +1,8 @@
 """
-Script que pide un número cualquiera al usuario,
-usa un bucle for para mostrar su tabla de
-multiplicar del 1 al 10.
+Copia tu script (hecho en la unidad 1.5) aplicando:
+ · Docstring al inicio.
+ · Comentarios en las partes importantes.
+ · Nombres de variables siguiendo PEP 8.
 """
 # Pide al usuario introducir un número, se define
 # se convierte de str a float, ya que los datos
