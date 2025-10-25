@@ -18,7 +18,7 @@ Python internamente utiliza una estructura de tipo "hash table", donde:
 · El valor (value) es la contraseña asociada → "Aroon1234@"
 Así cada usuario tiene su contraseña única e independiente.
 """
-
+# Declarar diccionario para guardar claves (usuarios) y valores (contraseñas)
 usuarios = {}
 
 # Bucle principal del menú (1, 2, 3)
@@ -29,7 +29,7 @@ while True:
         case 1:
             while True: # Bucle para validar identificador (email)
                 identifier = input("Introduce dirección de email -> ")
-                # Busca la posición del ultimo punto en el correo insertado.
+                # Busca la posición del ultimo (rfind) punto en el correo insertado.
                 punto_ext = identifier.rfind(".")
                 # Validar estructura básica correo (contiene @, punto y contiene punto).
                 if "@" in identifier and punto_ext:
@@ -86,7 +86,6 @@ while True:
                             if contrasena_login == usuarios[usuario_login]:
                                 print("Inicio de sesión exitoso.")
                                 intento = 3
-                                break
                             else:
                                 intento += 1
                                 print(f"Contraseña incorrecta, intento {intento}/3.")
@@ -104,5 +103,3 @@ while True:
             break
         case _:
             print("Opción no disponible, elige nuevamente.")
-
-# Completado - posibles retoques
