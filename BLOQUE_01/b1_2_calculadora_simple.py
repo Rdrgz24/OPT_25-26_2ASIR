@@ -1,7 +1,8 @@
-#Crea un script que:
-# -> Tenga dos variables num1 y num2.
-# -> Calcule y muestre: suma, resta, multiplicación, división, módulo y potencia.
-
+"""
+Crea un script que:
+Tenga dos variables num1 y num2.
+Calcule y muestre: suma, resta, multiplicación, división, módulo y potencia.
+"""
 num1 = float(input("Escribe el número 1-> "))
 num2 = float(input("Escribe el número 2-> "))
 

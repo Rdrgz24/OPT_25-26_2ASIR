@@ -1,7 +1,13 @@
 """
-Script que pide al usuario tres notas y calcule
-el promedio.
-Analizar modo debug con código mal escrito:
+Crea un script que:
+1. Pida al usuario tres notas.
+2. Calcule el promedio.
+3. Introduzca un error lógico en el cálculo (como en el ejemplo anterior).
+4. Usa IntelliJ en modo depuración para encontrar y corregir el error.
+5. Añade un docstring al inicio explicando qué hacía mal el programa y cómo se corrigió.
+"""
+"""
+Docstring explicando el mal funcionamiento del programa y corrección:
 
 Connected to: <socket.socket fd=740, family=2, type=1,
 proto=0, laddr=('127.0.0.1', 60705),
@@ -18,7 +24,6 @@ promedio = nota_1 + nota_2 + nota_3 / 3
 Para corregirla debemos usar la precedencia de operadores:
 promedio = (nota_1 + nota_2 + nota_3) / 3
 """
-
 nota_1 = float(input("Introduce la nota 1 -> "))
 nota_2 = float(input("Introduce la nota 2 -> "))
 nota_3 = float(input("Introduce la nota 3 -> "))

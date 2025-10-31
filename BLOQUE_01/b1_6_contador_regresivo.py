@@ -1,17 +1,18 @@
-# Crea un script que:
-# 1. Pida un número al usuario.
-# 2. Use un bucle while para contar desde ese número hasta 0.
-# · Al final muestre: "¡Despegue!".
-# 👉 Ejemplo de salida:
-# Introduce un número: 5
-# 5
-# 4
-# 3
-# 2
-# 1
-# 0
-# ¡Despegue!
-
+"""
+Crea un script que:
+ · Pida un número al usuario.
+ · Use un bucle while para contar desde ese número hasta 0.
+ · Al final muestre: "¡Despegue!".
+   · Ejemplo de salida:
+Introduce un número: 5
+5
+4
+3
+2
+1
+0
+¡Despegue!
+"""
 num = int(input("Introduce un número -> "))
 
 if num < 0:
