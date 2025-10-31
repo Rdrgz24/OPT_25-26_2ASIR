@@ -1,25 +1,7 @@
 """
-Este programa permite registrar usuarios con un email y contraseña,
-y luego iniciar sesión con ellos.
-
-En la primera versión probada usé dos listas:
-usuarios = []
-contrasenas = []
-Esto provocaba un error, ya que las contraseñas no estaban asociadas
-a un usuario concreto. Si un usuario introducía la contraseña de otro,
-el programa lo aceptaba igual.
-
-Solución aportada:
-Usar un diccionario que guarda pares clave–valor:
-usuarios = { "correo": "contraseña" }
-
-Python internamente utiliza una estructura de tipo "hash table", donde:
-· La clave (key) es el correo o nombre de usuario → "aroon@gmail.com"
-· El valor (value) es la contraseña asociada → "Aroon1234@"
-Así cada usuario tiene su contraseña única e independiente.
+Este programa permite registrar un usuario con un email y contraseña,
+y luego iniciar sesión con él.
 """
-
-usuarios = {}
 
 # Bucle principal del menú (1, 2, 3)
 while True:
@@ -28,7 +10,7 @@ while True:
         # Opción 1 - Registro
         case 1:
             while True: # Bucle para validar identificador (email)
-                identifier = input("Introduce dirección de email -> ")
+                identifier = str(input("Introduce dirección de email -> "))
                 # Busca la posición del ultimo punto en el correo insertado.
                 punto_ext = identifier.rfind(".")
                 # Validar estructura básica correo (contiene @, punto y contiene punto).
@@ -46,13 +28,11 @@ while True:
                                 print("El correo tiene carácteres no permitidos antes del @.")
                             else:
                                 while True: # Bucle de contraseña
-                                    contrasena = input("Introduce la contraseña -> ")
+                                    contrasena = str(input("Introduce la contraseña -> "))
                                     if len(contrasena) >= 8: # Contraseña con 8 o más caracteres...
                                         if contrasena.lower() != contrasena: # Comparativa para saber si tiene mayúscula...
                                             if any(num in "0123456789" for num in contrasena): # Comprobar que tiene algún número.
                                                 if any(char in "!@#$%&*?" for char in contrasena): # Comprobar que tenga un símbolo especial.
-                                                    # Se añade lo introducido con formato correo:contraseña al diccionario.
-                                                    usuarios[identifier] = contrasena
                                                     print(f"Usuario", identifier, "con contraseña", contrasena, "registrados.")
                                                     # Se corta el bucle al registrar usuario y contraseña válidos.
                                                     break
@@ -76,21 +56,20 @@ while True:
                 usuario_login = input("Introduce usuario -> ")
                 # Compara el usuario introducido con los usuarios (clave) del diccionario registrados.
                 if usuario_login != "volver":
-                    if usuario_login in usuarios:
+                    if usuario_login == identifier:
                         intento = 0
                         while intento < 3:
                             contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
                             # Compara la contraseña introducida con el valor del usuario_login (clave).
                             # El valor internamente se representa como: "rafael": "Rafa1234@"
                             # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
-                            if contrasena_login == usuarios[usuario_login]:
+                            if contrasena_login == contrasena:
                                 print("Inicio de sesión exitoso.")
                                 intento = 3
-                                break
                             else:
                                 intento += 1
                                 print(f"Contraseña incorrecta, intento {intento}/3.")
-                            if intento == 3 and contrasena_login != usuarios[usuario_login]:
+                            if intento == 3 and contrasena_login != contrasena:
                                 print("Demasiados intentos fallidos. Volviendo al menú.")
 
                         break
@@ -104,5 +83,3 @@ while True:
             break
         case _:
             print("Opción no disponible, elige nuevamente.")
-
-# Completado - posibles retoques
