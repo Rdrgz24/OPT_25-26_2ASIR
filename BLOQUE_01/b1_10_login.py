@@ -3,6 +3,10 @@ Este programa permite registrar un usuario con un email y contraseña,
 y luego iniciar sesión con él.
 """
 
+# Definimos variables globales para poder trabajar con ellas desde todos los case.
+identifier = ""
+contrasena = ""
+
 # Bucle principal del menú (1, 2, 3)
 while True:
     opcion = int(input("Escoge una opción [1] Registrarse [2] Iniciar sesión [3] Salir -> "))
@@ -52,32 +56,34 @@ while True:
                 else:
                     print("Correo incorrecto, vuelve a introducir...")
         case 2:
-            while True:
-                usuario_login = input("Introduce usuario -> ")
-                # Compara el usuario introducido con los usuarios (clave) del diccionario registrados.
-                if usuario_login != "volver":
-                    if usuario_login == identifier:
-                        intento = 0
-                        while intento < 3:
-                            contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
-                            # Compara la contraseña introducida con el valor del usuario_login (clave).
-                            # El valor internamente se representa como: "rafael": "Rafa1234@"
-                            # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
-                            if contrasena_login == contrasena:
-                                print("Inicio de sesión exitoso.")
-                                intento = 3
-                            else:
-                                intento += 1
-                                print(f"Contraseña incorrecta, intento {intento}/3.")
-                            if intento == 3 and contrasena_login != contrasena:
-                                print("Demasiados intentos fallidos. Volviendo al menú.")
-
-                        break
+            # Comprobar que el usuario haya sido registrado anteriormente.
+            if not identifier:
+                print("No se ha registrado el usuario.")
+            else:
+                while True:
+                    usuario_login = input("Introduce usuario -> ")
+                    # Compara el usuario introducido con los usuarios (clave) del diccionario registrados.
+                    if usuario_login != "volver":
+                        if usuario_login == identifier:
+                            intento = 0
+                            while intento < 3:
+                                contrasena_login = input(f"Introduce la contraseña de {usuario_login} -> ")
+                                # Compara la contraseña introducida con el valor del usuario_login (clave).
+                                # El valor internamente se representa como: "rafael": "Rafa1234@"
+                                # Donde "rafael" es el usuario (clave) y "Rafa1234@" es la contraseña asociada (valor).
+                                if contrasena_login == contrasena:
+                                    print("Inicio de sesión exitoso.")
+                                    intento = 3
+                                else:
+                                    intento += 1
+                                    print(f"Contraseña incorrecta, intento {intento}/3.")
+                                if intento == 3 and contrasena_login != contrasena:
+                                    print("Demasiados intentos fallidos. Volviendo al menú.")
+                        else:
+                            print("Usuario no existe, si lo necesitas, escribe (volver) para ir al menú principal.")
                     else:
-                        print("Usuario no existe, si lo necesitas, escribe (volver) para ir al menú principal.")
-                else:
-                    print("Volviendo al menú...")
-                    break
+                        print("Volviendo al menú...")
+                        break
         case 3:
             print("Saliste del menú")
             break
