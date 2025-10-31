@@ -1,6 +1,6 @@
 """
 Este programa permite registrar un usuario con un email y contraseña,
-y luego iniciar sesión con él.
+y luego iniciar sesión con él. prueba
 """
 
 # Bucle principal del menú (1, 2, 3)
