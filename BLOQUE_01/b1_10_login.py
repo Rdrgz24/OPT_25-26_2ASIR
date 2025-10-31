@@ -79,11 +79,12 @@ while True:
                                     print(f"Contraseña incorrecta, intento {intento}/3.")
                                 if intento == 3 and contrasena_login != contrasena:
                                     print("Demasiados intentos fallidos. Volviendo al menú.")
+                                break
                         else:
                             print("Usuario no existe, si lo necesitas, escribe (volver) para ir al menú principal.")
                     else:
                         print("Volviendo al menú...")
-                        break
+                    break
         case 3:
             print("Saliste del menú")
             break
