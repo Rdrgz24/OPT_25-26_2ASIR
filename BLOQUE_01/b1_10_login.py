@@ -20,9 +20,8 @@ while True:
                 # Validar estructura básica correo (contiene @, punto y contiene punto).
                 if "@" in identifier and punto_ext:
                     # Extraer parte del correo que va antes del último punto.
-                    antes_punto = identifier[:punto_ext]
                     # Valida los carácteres o longitud antes del "." (extensión).
-                    if len(antes_punto) >= 3:
+                    if punto_ext >= 3:
                         # Verificar que tiene extensión .com o .es o .net.
                         if (identifier.endswith(".com")
                                 or identifier.endswith(".es")
