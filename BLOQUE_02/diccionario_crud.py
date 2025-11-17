@@ -10,17 +10,20 @@ def create_person(persona):
     else:
         print("DNI incorrecto.")
 
-def read_people():
+def read_people(buscar_dni):
     # pass  # TODO: Loop through people and print their info
-    print(people)
+    if buscar_dni in people:
+        print(people[buscar_dni])
+    else:
+        print("no existe dni")
 
-def update_person():
+def update_person(tudni):
     """Update information of an existing person."""
     # pass  # TODO: Ask for ID, check if exists, and update fields
-    persona = {"DNI": "29070819L", "Nombre": "Ana", "Edad": 20, "Ciudad": "Huelva", "Profesion": "Carpintero"}
     key = persona.get("DNI")
-    people[key] = persona
-    print(people)
+    key2 = persona.get("midni")
+    print(f"Has seleccionado el usuario, {key}")
+
 
 def delete_person():
     # pass  # TODO: Ask for ID and remove from the dictionary if exists
@@ -53,9 +56,17 @@ while option != "5":
             persona = {"DNI": dni, "Nombre": nombre, "Edad": edad, "Ciudad": ciudad, "Profesion": prof}
             create_person(persona)
         case "2":
-            read_people()
+            dnis = []
+            dni = 1
+            while dni != -1:
+                dni = input("Introduce un DNI o -1 para parar -> ")
+                dnis.append(dni)
+            print("Bucle terminado")
+            read_people(dnis)
         case "3":
-            update_person()
+            print(people)
+            tudni = input("¿Qué usuario quieres modificar?")
+            update_person(tudni)
         case "4":
             delete_person()
         case "5":
