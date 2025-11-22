@@ -10,6 +10,7 @@
 """
 
 def registrar_usuario(nombre, edad, ciudad="Madrid"):
+    """Define función que registra un usuario en base a nombre, edad y ciudad (con valor por defecto)."""
     print(f"Usuario: {nombre}, Edad: {edad}, Ciudad: {ciudad}")
 
 # Todos los argumentos posicionales.

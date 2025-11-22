@@ -12,3 +12,5 @@ Crea un script que:
  · mostrar_contador().
 5. Añade un docstring en cada función explicando lo que hace.
 """
+
+contador = 0

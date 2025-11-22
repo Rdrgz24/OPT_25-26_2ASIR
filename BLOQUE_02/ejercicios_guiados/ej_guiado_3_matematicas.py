@@ -6,13 +6,16 @@
  · El perímetro calculado.
 Objetivo: practicar funciones con un solo resultado devuelto.
 """
+
 b = float(input("Introduce la base del rectángulo -> "))
 a = float(input("Introduce la altura del rectángulo -> "))
 
 def area_rectangulo(base, altura):
+    """Función que calcula el área del rectángulo pasando dos parametros (base y altura)."""
     return base * altura
 
 def perimetro_rectangulo(base, altura):
+    """Función que calcula el perímetro del rectángulo pasando dos parametros (base y altura)."""
     return 2 * (base + altura)
 
 print("El área del rectángulo es ", area_rectangulo(b, a))
