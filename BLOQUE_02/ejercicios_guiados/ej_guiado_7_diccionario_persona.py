@@ -6,7 +6,7 @@
 5. Recorre el diccionario mostrando clave y valor en cada línea.
 """
 
-persona = {"nombre": "Rafael", "edad": 20, "ciudad": "Huelva"}
+persona = {"nombre": "Juan", "edad": 23, "ciudad": "Huelva"}
 # 2. Muestra el valor de cada clave.
 print(persona.values())
 # 3. Añade una nueva clave profesion con su valor.
