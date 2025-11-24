@@ -10,7 +10,8 @@ lista = [n ** 2 for n in range(1, 11)]
 print(lista)  # [1, 4, 9, 16, 25]
 
 # 2. Generar otra con números pares entre 1 y 20 usando compresion.
-pares = [n ** 2 for n in range(1, 21) if n % 2 == 0]
+
+pares = [n for n in range(1, 21) if n % 2 == 0]
 print(pares)
 
 # 3. Crea un diccionario que relacione cada numero del 1 al 5
