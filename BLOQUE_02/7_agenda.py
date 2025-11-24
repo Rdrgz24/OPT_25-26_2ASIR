@@ -9,3 +9,21 @@
  · Si no existe, muestra "Contacto no encontrado".
 5. Añade un docstring explicando qué hace el programa.
 """
+
+agenda = {}
+
+for i in range(3):
+    nombre = input("Introduce el nombre -> ")
+    telf = input("Introduce el teléfono (9 dígitos) -> ")
+    if len(telf) == 9:
+        agenda[nombre] = telf
+    else:
+        print("Formato teléfono incorrecto, no se registrará usuario.")
+
+for nombre, telf in agenda.items():
+    print(f"{nombre} : {telf}")
+
+busqueda = input("Introduce el nombre del usuario a buscar -> ")
+
+if busqueda in agenda:
+    print(f"Teéfono del usuario {busqueda} : {agenda[busqueda]}")
