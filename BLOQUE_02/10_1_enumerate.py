@@ -1,16 +1,5 @@
-"""
-1. Lista de nombres:
-nombres = ["Ana", "Luis", "Marta", "Carlos"]
-2. Recorre la lista usando enumerate() y muestra el índice y el nombre.
-3. Convierte el resultado en lista de tuplas y muéstralo.
-Salida esperada:
-
-0 Ana
-1 Luis
-2 Marta
-3 Carlos
-[(0, 'Ana'), (1, 'Luis'), (2, 'Marta'), (3, 'Carlos')]
-"""
+""" En base a una lista de nombres, recorrer la lista con enumerate(), en este caso usé un bucle for,
+y además mostrar el resultado en una lista de tuplas."""
 
 nombres = ["Antonio", "Luis", "José María", "María José"]
 

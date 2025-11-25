@@ -1,14 +1,6 @@
-"""
-1. Crea un diccionario vacío llamado agenda.
-2. Pide al usuario que introduzca 3 contactos (nombre y teléfono).
- · El nombre será la clave.
- · El teléfono será el valor.
-3. Muestra la agenda completa usando un bucle.
-4. Permite al usuario buscar un contacto por nombre:
- · Si existe, muestra el teléfono.
- · Si no existe, muestra "Contacto no encontrado".
-5. Añade un docstring explicando qué hace el programa.
-"""
+""" El programa pide al usuario añadir tres claves junto a tres valores, con la condición de que
+el teléfono debe ser de 9 dígitos. Asigna estos contactos a un diccionario llamado agenda
+y permite UNA vez buscar UN usuario para mostrar su teléfono en base a su nombre."""
 
 agenda = {}
 
@@ -26,4 +18,8 @@ for nombre, telf in agenda.items():
 busqueda = input("Introduce el nombre del usuario a buscar -> ")
 
 if busqueda in agenda:
-    print(f"Teéfono del usuario {busqueda} : {agenda[busqueda]}")
+    print(f"Teléfono del usuario {busqueda} : {agenda[busqueda]}")
+else:
+    print("Contacto no encontrado.")
+
+# FALTA COMENTAR QUE HACE CADA BUCLE, INPUT, DICCIONARIO...
