@@ -11,10 +11,9 @@ Crea un programa que:
 5. Incluya un docstring explicando qué hace el programa.
 """
 
-lista = []
-for n in range(1,21): lista.append(n)
+lista = [n for n in range(1,21)]
 
-cuadrado = [n ** 2 for n in lista ]
+cuadrado = [ n ** 2 for n in lista ]
 print(cuadrado)
 
 par = [n for n in lista if n % 2 == 0]
@@ -22,4 +21,8 @@ print(par)
 
 masdiez = [n for n in lista if n > 10]
 print(masdiez)
-# NO TERMINADO
+
+doble = {n: n * 2 for n in lista }
+print(doble)
+
+# FALTA DOCSTRING
