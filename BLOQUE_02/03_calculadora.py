@@ -1,16 +1,6 @@
-"""
-Crea un script que contenga 4 funciones separadas:
- · sumar(a, b) → devuelve la suma.
- · restar(a, b) → devuelve la resta.
- · multiplicar(a, b) → devuelve la multiplicación.
- · dividir(a, b) → devuelve la división (controlando la división por cero).
-
-El programa principal debe:
-1. Pedir dos números al usuario.
-2. Llamar a cada función y mostrar los resultados.
-3. Incluir un docstring explicativo en cada función.
-4. Cumplir las normas de estilo PEP 8.
-"""
+"""Este programa define 4 funciones (sumar, restar, multiplicar y dividir) el
+usuario introduce los valores por teclado y se muestra por pantalla los
+resultados de cada operación. (Segundo número de división no puede ser 0)"""
 
 a = float(input("Introduce el primer número -> "))
 b = float(input("Introduce el segundo número -> "))

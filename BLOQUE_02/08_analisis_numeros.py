@@ -13,4 +13,8 @@ masdiez = [n for n in lista if n > 10]
 # Usando compresiones de listas para calcular los dobles.
 doble = {n: n * 2 for n in lista }
 
-print(f"Cuadrado de los números: {cuadrado} \nMayores que diez: {par}\nNúmeros pares de la lista: {masdiez}\nDoble de los números {doble}")
+# Muestra los resultados con print(f"") que permite insertar variables usando {}.
+print(f"Cuadrado de los números: {cuadrado}\n"
+      f"Mayores que diez: {par}\n"
+      f"Números pares de la lista: {masdiez}\n"
+      f"Doble de los números {doble}")

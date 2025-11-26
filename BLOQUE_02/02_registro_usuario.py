@@ -1,13 +1,5 @@
-"""
-1. Crea una función registrar_usuario(nombre, edad, ciudad="Madrid").
-2. La función debe mostrar en pantalla: "Usuario: [nombre], Edad: [edad], Ciudad: [ciudad]".
-3. Debe poder llamarse con:
- · Todos los argumentos posicionales.
- · Algún argumento omitido, usando el valor por defecto.
- · Argumentos nombrados en distinto orden.
-4. Incluye un docstring en la función.
-5. Desde el programa principal, llama a la función al menos 3 veces con diferentes combinaciones de argumentos.
-"""
+"""Este programa permite practicar con los argumentos posicionales definiendo
+una función con valores vacíos y predeterminados."""
 
 def registrar_usuario(nombre, edad, ciudad="Madrid"):
     """Define función que registra un usuario en base a nombre, edad y ciudad (con valor por defecto)."""

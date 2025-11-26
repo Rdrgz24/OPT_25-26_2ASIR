@@ -1,3 +1,5 @@
+"""Este programa define una función que muestra un menú por pantalla."""
+
 def mostrar_menu():
     """Muestra un menú principal - sin entradas por teclado, solo visualizar."""
     print("MENÚ PRINCIPAL - OPCIONES")
