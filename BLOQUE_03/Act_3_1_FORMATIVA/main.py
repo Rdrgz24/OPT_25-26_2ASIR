@@ -15,7 +15,7 @@ class Datos(BaseModel): # En este caso indicamos que usará BaseModel como valid
 @app.post("/deploy") # Llamamos a FastAPI para que recoja formulario tipo POST desde /deploy
 def deploy(data: Datos): # Definimos función llamada "deploy" y usa lo recogido desde "Datos"
 
-    try: # Modelo de excepción, intentamos con try literalmente
+    try: # Modelo de excepción, intentamos todo el código siguiente...
 
         # Generar contraseña automáticamente
         pwd_generada = pwd20()
