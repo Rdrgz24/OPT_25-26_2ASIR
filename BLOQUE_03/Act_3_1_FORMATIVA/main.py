@@ -12,7 +12,6 @@ class Datos(BaseModel): # En este caso indicamos que usará BaseModel como valid
     wordpress_user: str # Indicamos que el dado que se espera es string
     wordpress_db: str # igual
 
-
 @app.post("/deploy") # Llamamos a FastAPI para que recoja formulario tipo POST desde /deploy
 def deploy(data: Datos): # Definimos función llamada "deploy" y usa lo recogido desde "Datos"
 
