@@ -8,7 +8,8 @@
 
 - Sistema Operativo Windows (al menos es con el que se ha probado)
 - Python con la versión 3.10 en adelante
-- Docker Desktop
+- Docker Desktop con WSL2
+- Alguna distro de WSL2, por ejemplo Ubuntu: wsl --install -d Ubuntu
 
 ## Librerías utilizadas
 
